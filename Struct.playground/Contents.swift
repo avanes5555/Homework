@@ -41,6 +41,11 @@ struct Transport {
     
 }
 
+enum Status {
+    case openDoor
+    case openWindow
+    case startedEngine
+}
 
 struct getStatus {
         var openDoor: Bool
@@ -57,16 +62,24 @@ struct getStatus {
             self.model = model
         }
      
-       mutating func changeEndine(){
+    mutating func changeEndine(operation: Status) {
+        switch operation {
+        case .startedEngine:
             startedEngine = !startedEngine
-        color = "Blue"
+        case .openWindow:
+            openWindow = !openWindow
+        case .openDoor:
+            openDoor = !openDoor
+        default:
+            color = "Blue"
+        }
         
         }
        
     }
   
-    var Status = getStatus(model: "Granta", color: "Dark")
-print (Status)
+    var Status1 = getStatus(model: "Granta", color: "Dark")
+   print (Status1)
 
 
 
@@ -81,6 +94,7 @@ print (transportLight.info)
 print (cargo.infO)
 print (transportLight.infO)
 print ("\(cargo.color)")
+transportLight.color.count
 
 
 

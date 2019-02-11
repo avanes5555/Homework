@@ -121,16 +121,30 @@ class sportCar: Car {
 
 var sportcar = sportCar(model: "SS", color: .brown, openDoor: true, openWindow: false, startedEngine: true, power: 456, speed: 567, weight: 2300, lenght: 4800, turbo: true, biturbo: true)
 
-class override: sportCar {
-     func SetTurbo() {
+class Override: sportCar {
+    override func changeEndine(operation: Status, operation0: Properties) {
+        switch operation {
+        case .startedEngine:
+            startedEngine = startedEngine
+        case .openWindow:
+            openWindow = openWindow
+        case .openDoor:
+            openDoor = openDoor
+        }
+    }
+    func SetTurbo() {
         super.SetTurbo(iteration: .biturbo)
         super.SetTurbo(iteration: .turbo)
     }
 }
 
-class final: sportCar {
+final class Final: sportCar {
     final func SetTurbo() {
         print ("Нельзя переопределять функцию")
+    }
+    
+    final override func changeEndine(operation: Status, operation0: Properties) {
+      
     }
 }
 

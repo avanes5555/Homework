@@ -18,7 +18,7 @@ protocol Car {
     
 
     
-    init(model: String, color: UIColor, openDoor: Bool,openWindow: Bool, startedEngine: Bool, power: Int, speed: Int, weight: Double, lenght: Double)
+    //init(model: String, color: UIColor, openDoor: Bool,openWindow: Bool, startedEngine: Bool, power: Int, speed: Int, weight: Double, lenght: Double)
     
     
 }
@@ -28,6 +28,10 @@ protocol Car {
 
 extension Car {
   
+    
+    
+    
+    
     mutating func startEngine() {
         self.StartedEngine = !StartedEngine
     }
@@ -121,9 +125,9 @@ class sportCar: Car {
     var Speed: Int
     var Weight: Double
     var Lenght: Double
-   
+    var Turbo: Bool
     
-    required init(model: String, color: UIColor, openDoor: Bool,openWindow: Bool, startedEngine: Bool, power: Int, speed: Int, weight: Double, lenght: Double ) {
+    required init(model: String, color: UIColor, openDoor: Bool,openWindow: Bool, startedEngine: Bool, power: Int, speed: Int, weight: Double, lenght: Double, turbo: Bool) {
       
         
         self.Model = model
@@ -135,8 +139,16 @@ class sportCar: Car {
         self.Speed = speed
         self.Weight = weight
         self.Lenght = lenght
+        self.Turbo = turbo
        
     
     
     }
 }
+
+var AMG = sportCar(model: "AMG", color: .black, openDoor: false, openWindow: false, startedEngine: false, power: 321, speed: 331, weight: 2500, lenght: 400.44, turbo: true)
+
+AMG.Power = 332
+AMG.Color = .black
+AMG.OpenDoor = true
+print(AMG)
